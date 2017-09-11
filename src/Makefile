@@ -25,7 +25,7 @@ acoustic.html : header-src.html acoustic-src.html footer-src.html
 	sed "s,@title@,Acoustic delay line memory," <header-src.html | cat - acoustic-src.html footer-src.html > $@
 
 editorperformance.html : header-src.html editorperformance-src.html footer-src.html
-	sed "s,@title@,Editor Performance," <header-src.html | cat - editorperformance-src.html footer-src.html > $@
+	sed "s,@title@,Text Editor Performance Comparison," <header-src.html | cat - editorperformance-src.html footer-src.html > $@
 
 mpl.html : header-src.html mpl-src.html footer-src.html
 	sed "s,@title@,MPL," <header-src.html | cat - mpl-src.html footer-src.html > $@
