@@ -2,7 +2,7 @@
 
 HTDOCS = index.html verifone.html acoustic.html relay.html
 
-GIFS = 
+GIFS =
 
 all : ${HTDOCS}
 
