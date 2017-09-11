@@ -1,0 +1,97 @@
+<html>
+<head><title>Acoustic delay line memory</title>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6829164660246370",
+    enable_page_level_ads: true
+  });
+</script>
+</head>
+<body>
+<table width="100%" cellspacing=0>
+  <tbody>
+    <tr height="50">
+    <td bgcolor="#5a8e94" align=center></td>
+    <td bgcolor="#5a8e94" align=center><big>Acoustic delay line memory</big></td>
+    </tr>
+    <tr valign="top">
+      <td width="200" valign="top" bgcolor="#5a8e94">
+      <hr>
+
+      <dir>
+      <a href="index.html" color="#ffffff">Joe's Projects</a><br>
+        <dir>
+        <a href="verifone.html" color="#ffffff">Hacking the Verifone ZON Jr XL</a><br>
+        <a href="acoustic.html" color="#ffffff">Acoustic Delay Line Memory</a><br>
+        </dir>
+      </dir>
+      </td>
+      <td valign="top">
+<table cellspacing=10><tr valign="top"><td>
+<h3>
+Delay Line Memory</h3>
+&nbsp;Delay line memory always fascinated me.&nbsp; It is well known that early computers such as the <a href="http://ed-thelen.org/comp-hist/vs-univac-mercury-memory.html#Architecture">UNIVAC-I</a> used mercury acoustic delay line memory.&nbsp; Less well known is that the use of digital delay line memory continued well into the semiconductor era in the form of <a href="http://www.vintagecalculators.com/html/calculator_memory_technologies.html">Torsional</a> and <a href="http://www.oldcalculatormuseum.com/vic14-322.html">Quartz</a> delay line memories for calculators.<br />
+<br />
+Analog delay line memory also has had many uses over the years.&nbsp; One common use was for drop-out compensators in video tape recorders.&nbsp; As each video line was read from the video tape, a copy was stored in a delay line.&nbsp; If a drop-out was detected (indicated by the loss of the FM carrier) in a particular line, the signal from the previous line from the output of the delay line was substituted in its place to improve the look of the video.&nbsp; Another common use was in MTI (Motion Target Indicator) RADAR.&nbsp; In this case the signal recorded in a delay line from a previous ping was subtracted from the signal from the current ping to eliminate non-moving "clutter" and highlight anything which was moving.<br />
+<br />
+<h3>
+Build your own</h3>
+<h3>
+&nbsp;</h3>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://4.bp.blogspot.com/-Jd1ej8WXwRU/UsngeNjj6DI/AAAAAAAAAhg/rqYJZWxjX4k/s1600/DSCF2238.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://4.bp.blogspot.com/-Jd1ej8WXwRU/UsngeNjj6DI/AAAAAAAAAhg/rqYJZWxjX4k/s1600/DSCF2238.JPG" width="640" /></a></div>
+<br />
+I thought it would be neat to make an acoustic digital delay line memory which operated at audio frequencies and used air as the delay media so that I could hear it operating.&nbsp;&nbsp; It turns out that Radio Shack's <a href="http://www.radioshack.com/product/index.jsp?productId=3814337">Electronics Learning Lab</a> (with instructional guides written by <a href="http://en.wikipedia.org/wiki/Forrest_Mims">Forrest Mims III</a>) provides nearly all of the components necessary to build your own acoustic delay line memory.&nbsp; I used this kit, plus a speaker, a dynamic microphone and some long wires so that the speaker can be separated from the microphone by about 20 feet.<br />
+<br />
+Here is the schematic:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-zIc2uh4vM_M/UsmelP4aMeI/AAAAAAAAAg8/o2YVYIQsbEY/s1600/DSCF2223.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://3.bp.blogspot.com/-zIc2uh4vM_M/UsmelP4aMeI/AAAAAAAAAg8/o2YVYIQsbEY/s640/DSCF2223.JPG" width="640" /></a></div>
+<div style="text-align: center;">
+(click to enlarge)</div>
+<h3>
+Circuit Description</h3>
+The key component is the 4017 decade counter / decoder.&nbsp; This chip provides the frame timing and provides an easy way to consistently locate each bit in the delay line.&nbsp; A 4001-based RC oscillator provides the clock for the 4017 and the 4013 flip-flops.&nbsp; There are 10-bit times: two of them are in the 4013 flip-flop and the remaining 8 are in the air.&nbsp; The speed of sound is about 1100 ft / second, so 20 feet separation between microphone and speaker results in a delay of about 18 ms.&nbsp; 8 bits in 18 ms means that each bit should be about 2.25 ms, so the clock frequency should be about 444 Hz.<br />
+<br />
+The TL272 OP-AMP amplifies the signal from the microphone. The LM339 comparator detects the signal.&nbsp; The detection threshold can be adjusted with a potentiometer.&nbsp; When a signal is detected, a 4001-based set-reset flip-flop is set.&nbsp; A 4013 D-flip flop clocks in (or "re-times") the detected bit and also clears the set-reset flip-flop.<br />
+<br />
+A "bit injection" exclusive-OR gate is inserted at this point of the signal path.&nbsp; This allows bits to be injected into the memory.&nbsp; When a button is pressed, the bit at that specific time is inverted by this gate.<br />
+<br />
+A second exclusive-OR gate and a 4013 D flip-flop are set up as a toggle flip-flop.&nbsp; When the input is a 1, the flip-flop toggles.&nbsp; This is passed through an RC high-pass filter to the LM386 audio amplifier which is connected to the speaker.&nbsp; Whenever this flop-flop toggles a "tick" sound is emitted by the speaker.&nbsp; The polarity of the "tick" doesn't really matter since some ringing will be associated with the sound.&nbsp; It's one of the cycles of the ringing which is detected by the LM339.<br />
+<br />
+Here is the circuit built on the Electronics Learning Lab breadboard.&nbsp; The top knob controls the detection threshold.&nbsp; The bottom knob controls the bit-rate.&nbsp; The four blue buttons each invert a specific bit of the memory:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://3.bp.blogspot.com/-nl1-YXLQlKc/UsmjvKAvfMI/AAAAAAAAAhM/x-uFvBH5dXA/s1600/DSCF2225.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="480" src="https://3.bp.blogspot.com/-nl1-YXLQlKc/UsmjvKAvfMI/AAAAAAAAAhM/x-uFvBH5dXA/s640/DSCF2225.JPG" width="640" /></a></div>
+<br />
+<h4>
+Calibration</h4>
+To calibrate and watch the circuit operating you really need an oscilloscope.&nbsp; I use an old Tektronix 485.&nbsp; One channel is connected to bit 0 of the 4017 as the "start of frame" pulse.&nbsp; The scope is set to trigger on this pulse and the time-base is set so that a bit more than a single frame fits across the screen.&nbsp; The other channel is connected to output of the re-timing flip-flop to watch for any captured bits.<br />
+<br />
+To calibrate the system break the path between the 4013 re-timing flip flop and the following bit injection exclusive-OR gate.&nbsp; Connect the input to the exclusive-OR gate to ground instead.&nbsp; Now turn on the circuit, hold down the button connected to bit 0 and watch the scope.&nbsp; Adjust the threshold so that you can just see a signal from the detected "tick" sounds.&nbsp; Now adjust the frequency so that the detected bit happens at the same time as the "start of frame" pulse.&nbsp; Calibration is now done, so connect the re-timing flip-flop back up to the exclusive-OR gate.&nbsp; Now the loop is closed and the circuit will automatically regenerate each detected bit.<br />
+<br />
+<h3>
+Video</h3>
+Here is a video of the delay line memory operating.&nbsp; I set each bit in turn, and then clear them in the reverse order.&nbsp; The buttons make enough acoustic noise so that pressing them sometimes sets unrelated bits.&nbsp; For this reason it is probably better to place the microphone as far from the buttons as possible:<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;">
+<object class="BLOGGER-youtube-video" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" data-thumbnail-src="http://i1.ytimg.com/vi/a5hOmPdxw0U/0.jpg" height="266" width="320"><param name="movie" value="http://www.youtube.com/v/a5hOmPdxw0U?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" /><param name="bgcolor" value="#FFFFFF" /><param name="allowFullScreen" value="true" /><embed width="320" height="266"  src="http://www.youtube.com/v/a5hOmPdxw0U?version=3&f=user_uploads&c=google-webdrive-0&app=youtube_gdata" type="application/x-shockwave-flash" allowfullscreen="true"></embed></object></div>
+<br />
+<h3>
+Other Experiments</h3>
+<h4>
+Counter</h4>
+&nbsp;You can make a counter out of the delay line memory by adding a carry flag (with another 4013 D flip-flop).&nbsp; Invert a bit if the carry flag is set (so feed the output of the carry flag into the signal injection exclusive-OR gate).&nbsp; Set the carry flag if the current bit is a 1 and the carry flag is also a 1 (so you need an AND gate).<br />
+<h4>
+Modulation</h4>
+The Electronics Learning Lab provides a 4046 phase locked loop chip.&nbsp; With the VCO and phase detector blocks in this chip it should be possible to use a better modulation method (perhaps FSK or PSK) and thereby get more reliable operation and higher bit density.<br />
+<br />
+<br />
+</td></tr></table>
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
