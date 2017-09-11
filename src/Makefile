@@ -13,7 +13,7 @@ clean :
 	/bin/rm -f ${HTDOCS}
 
 index.html : header-src.html index-src.html footer-src.html
-	sed "s,@title@,Relay Trainer," <header-src.html | cat - index-src.html footer-src.html > $@
+	sed "s,@title@,Joe's Projects," <header-src.html | cat - index-src.html footer-src.html > $@
 
 verifone.html : header-src.html verifone-src.html footer-src.html
 	sed "s,@title@,The Verifone ZON Jr XL," <header-src.html | cat - verifone-src.html footer-src.html > $@
