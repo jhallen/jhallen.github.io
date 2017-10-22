@@ -31,4 +31,4 @@ mpl.html : header-src.html mpl-src.html footer-src.html
 	sed "s,@title@,MPL," <header-src.html | cat - mpl-src.html footer-src.html > $@
 
 capsense.html : header-src.html capsense-src.html footer-src.html
-	sed "s,@title@,MPL," <header-src.html | cat - capsense-src.html footer-src.html > $@
+	sed "s,@title@,DIY Pressure Mat," <header-src.html | cat - capsense-src.html footer-src.html > $@
