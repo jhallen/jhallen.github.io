@@ -1,6 +1,6 @@
 
 
-HTDOCS = index.html verifone.html acoustic.html relay.html editorperformance.html mpl.html
+HTDOCS = index.html verifone.html acoustic.html relay.html editorperformance.html mpl.html capsense.html
 
 GIFS =
 
@@ -29,3 +29,6 @@ editorperformance.html : header-src.html editorperformance-src.html footer-src.h
 
 mpl.html : header-src.html mpl-src.html footer-src.html
 	sed "s,@title@,MPL," <header-src.html | cat - mpl-src.html footer-src.html > $@
+
+capsense.html : header-src.html capsense-src.html footer-src.html
+	sed "s,@title@,MPL," <header-src.html | cat - capsense-src.html footer-src.html > $@
