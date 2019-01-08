@@ -71,14 +71,9 @@ on a <a href="https://en.wikipedia.org/wiki/PDP-8">PDP-8</a> minicomputer
 from DEC.  So I designed one.  I wrote a Verilog version of the PDP-8 to
 pre-verify the design and help with optimization.</p>
 
-Here is the <a href="http://sourceforge.net/projects/relaysbc/files/verilog_pdp8.v/download">Verilog PDP-8</a>.
-
 <p>I designed the PDP-8 in schematics using 227 24V relays.  I also did a
 gate level simulation of this design, so I'm fairly confident it will
 work.</p>
-
-Here is the relay PDP-8 <a
-href="http://sourceforge.net/projects/relaysbc/files/relay_pdp8.pdf/download">schematics</a>.
 
 <h3>Trainer...</h3>
 
@@ -138,14 +133,11 @@ in fact very tedious to use.</p>
 <h3>Design</h3>
 
 <p>I use older design tools that I bought when I was working as a consultant
-in the mid 1990s: <a
-href="http://tech.groups.yahoo.com/group/OldDosOrcad/">DOS OrCAD SDT
-386+</a> for schematic capture and <a
-href="http://www.mentor.com/pcb/pads/overview/">PADS PowerPCB</a> version
+in the mid 1990s: DOS OrCAD SDT
+386+ for schematic capture and PADS PowerPCB version
 3.5.1 for PCB layout.  I have access to newer tools at work (Allegro,
 ConceptHDL), but they are certainly not mine to use for home projects.  I
-should probably learn an open source tool like <a
-href="http://www.gpleda.org/">gEDA</a>, but I already know the tools I
+should probably learn an open source tool like gEDA, but I already know the tools I
 own.</p>
 
 <h3>OrCAD</h3>
@@ -161,8 +153,7 @@ href="http://en.wikipedia.org/wiki/Long_mode">Long mode</a> does not
 directly support <a
 href="http://en.wikipedia.org/wiki/Virtual_8086_mode">Virtual 8086</a> mode,
 but with work Microsoft could have pulled it off (switch to 32-bit Protected
-mode, then switch to VM86 mode): see <a
-href="http://v86-64.sourceforge.net/">v86-64</a> for Linux.</p>
+mode, then switch to VM86 mode): see v86-64 for Linux.</p>
 
 <center>
 <figure>
@@ -173,9 +164,7 @@ href="http://v86-64.sourceforge.net/">v86-64</a> for Linux.</p>
 
 <p>I wrote a tool to convert OrCAD to Verilog so that I could run a
 "gate-level" simulation of the design (look for the Verilog netlister in the
-files section of the OldDosOrCAD Yahoo group) using the open source <a
-href="http://iverilog.icarus.com/">Icarus Verilog</a> and <a
-href="http://gtkwave.sourceforge.net/">GTKWave</a>.  This influenced the
+files section of the OldDosOrCAD Yahoo group) using the open source Icarus Verilog and GTKWave.  This influenced the
 design style I used.  Basically it's a very hierarchical design, where the
 relays only appear in the leaf pages, and the leaf pages are simple and
 small.  Each leaf page is replaced with a Verilog model whose source is
@@ -211,9 +200,8 @@ silkscreen design.</p>
 
 <p>One huge annoyance with PowerPCB is that it uses a parallel port dongle
 for licensing.  I'm stuck needing a machine with a real parallel port for
-this.  My IBM T41 is dying (it has the <a
-href="http://forum.thinkpads.com/viewtopic.php?f=2&t=82361&start=0">cracked
-video chip solder ball problem</a>), so I'm soon going to have to buy
+this.  My IBM T41 is dying (it has the cracked
+video chip solder ball problem), so I'm soon going to have to buy
 another one to keep a working CAD station.  Until it dies completely I've
 found I can make progress by bending the entire laptop slightly.</p>
 
@@ -227,12 +215,12 @@ found I can make progress by bending the entire laptop slightly.</p>
 <p>For the first build, I had PCBs made, but purchased and assembled the
 components into the board myself.  I bought 10 boards, but assembled only
 one of them.  For high-end (high speed, many-layer) designs, I've always
-used <a href="https://www.protoexpress.com/">Sierra Proto Express</a> (I
+used Sierra Proto Express (I
 always thought it was cool that I could send them an 8-layer board design by
 9 PM on the east coast, and have the fabricated boards back by the next
 morning).  For this low-tech two-layer design I only care about cost, so I
 was willing to try other places and wait a week for the fab time.  I ended
-up using <a href="http://www.4pcb.com/">Advanced Circuits</a>- they are
+up using Advanced Circuits- they are
 popular and a bit lower cost than Sierra Proto Express.</p>
 
 <p>The raw boards from Advanced Circuits were quite nice:<p>
@@ -272,7 +260,7 @@ all these cuts and jumpers the board did finally work.</p>
 <p>Notice that the "tactile switch" caps have printed lettering on them.  I
 experimented with screen-printing this lettering onto the caps and was
 planning on doing this in the final version.  Here is the screen I made for
-this, from a <a href="http://www.speedballart.com/">Speedball</a> kit from
+this, from a Speedball kit from
 the local art store.
 
 <center>
@@ -282,7 +270,7 @@ the local art store.
 </figure>
 </center>
 
-<p>This <a href="http://www.jacquardproducts.com/jacquard-screen-ink.html">ink</a> worked for the smooth plastic caps:</p>
+<p>This ink worked for the smooth plastic caps:</p>
 
 <center>
 <figure>
@@ -316,7 +304,7 @@ having both reflow and wave-soldering steps.</p>
 
 <h3>MyRO PCB</h3>
 
-<p>I finally chanced upon <a href="http://www.myropcb.com/">MyRO PCB</a>. 
+<p>I finally chanced upon MyRO PCB. 
 They have a sales office in Canada, but their factory is in China.  They
 have such reasonable prices for through-hole assembly that I gave up on the
 idea of switching anything to surface mount.  I don't know if they have
@@ -326,11 +314,9 @@ labor costs; perhaps it's both.  Anyway, I gave them a try.</p>
 <h3>Part ordering</h3>
 
 <p>MyRO will purchase parts for you if you give them a BOM (Bill of
-Materials), for a fee.  They can purchase from the big distributors like <a
-href="http://www.mouser.com/">Mouser</a> and <a
-href="http://www.digikey.com/">Digikey</a>, and want you to use these
+Materials), for a fee.  They can purchase from the big distributors like Mouser and Digikey, and want you to use these
 distributors' part numbers.  They do not deal with some smaller companies
-such as <a href="http://www.jameco.com">Jameco</a>, or directly with
+such as Jameco, or directly with
 component manufacturers- well at least they would not buy relays from a
 Chinese relay manufacturer.</p>
 
@@ -415,12 +401,10 @@ problems.</p>
 
 <h3>Relay Trouble</h3>
 
-<p>For the first build I bought 12V DPDT DIP "Kest"-branded relays from <a
-href="http://www.allelectronics.com/">All Electronics</a>.  They worked
+<p>For the first build I bought 12V DPDT DIP "Kest"-branded relays from All Electronics.  They worked
 fine, so I figured I'd be conservative and use the same part for the second
 build.  MyRO will not buy from All Electronics, so I figured I'd save money
-by buying 830 relays directly from <a
-href="http://www.kestmfg.com/">Kest</a>, who turn out to be in New Jersey. 
+by buying 830 relays directly from Kest, who turn out to be in New Jersey. 
 These relays seem to be different from the ones from All Electronics, even
 though they have the same part number.</p>
 
